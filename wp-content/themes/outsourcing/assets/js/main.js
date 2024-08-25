@@ -916,4 +916,30 @@
         scrollTopPercentage();
 
     });
+
+    // Function to show the popup
+    function showPopup() {
+        document.getElementById('formOverlay').style.display = 'block';
+        document.getElementById('formPopup').style.display = 'block';
+    }
+
+    // Function to hide the popup
+    function hidePopup() {
+        document.getElementById('formOverlay').style.display = 'none';
+        document.getElementById('formPopup').style.display = 'none';
+    }
+
+    // Attach event listeners to all "Get A Quote" buttons
+    document.querySelectorAll('.pricing-btn, .header-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            showPopup();
+        });
+    });
+
+    // Close popup when clicking the close button or outside the popup
+    document.getElementById('closePopup').addEventListener('click', hidePopup);
+    document.getElementById('formOverlay').addEventListener('click', hidePopup);
+
+    
 })(jQuery);

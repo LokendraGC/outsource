@@ -57,7 +57,6 @@ body {
   line-height: 1.625;
   font-weight: normal;
   color: var(--bz-color-text-body);
-  overflow-x : hidden;
 }
 
 img {
@@ -366,7 +365,7 @@ ul {
 }
 .section-heading .section-title {
   color: var(--bz-color-heading-primary);
-  font-size: 48px;
+  font-size: 35px;
   line-height: 1.2;
   font-weight: 600;
   display: block;
@@ -376,7 +375,7 @@ ul {
 }
 @media (max-width: 1200px) {
   .section-heading .section-title {
-    font-size: 40px;
+    font-size: 35px;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -2644,11 +2643,7 @@ START: Header CSS
   z-index: 1;
   width: 28%;
 }
-@media (max-width: 1200px) {
-  .header .middle-header .middle-header-inner .header-logo {
-    padding-right: 100px;
-  }
-}
+
 .header .middle-header .middle-header-inner .header-logo:before {
   background-color: var(--bz-color-theme-primary);
   content: "";
@@ -2762,16 +2757,7 @@ START: Header CSS
   justify-content: space-between;
   flex-wrap: wrap;
 }
-@media (max-width: 1200px) {
-  .header .primary-header-inner {
-    padding: 0 30px;
-  }
-}
-@media only screen and (max-width: 992px) {
-  .header .primary-header-inner {
-    padding: 20px 0;
-  }
-}
+
 .header .primary-header-inner .header-logo img {
   max-width: 150px;
 }
@@ -2818,7 +2804,7 @@ START: Header CSS
 }
 @media (max-width: 1200px) {
   .header .primary-header-inner .header-menu-wrap ul li {
-    margin: 0 10px;
+    margin: 0 5px;
   }
 }
 .header .primary-header-inner .header-menu-wrap ul li:nth-child(1) {
@@ -2838,7 +2824,10 @@ START: Header CSS
 }
 @media (max-width: 1200px) {
   .header .primary-header-inner .header-menu-wrap ul li a {
-    font-size: 16px;
+    font-size: 15px;
+  }
+  .header .primary-header-inner .header-right-wrap .header-right .header-btn{
+    font-size: 15px;
   }
 }
 .header .primary-header-inner .header-menu-wrap ul li a:hover {
@@ -2978,11 +2967,7 @@ START: Header CSS
   text-transform: uppercase;
   margin-right: 30px;
 }
-@media only screen and (max-width: 767px) {
-  .header .primary-header-inner .header-right-wrap .header-right .header-btn {
-    display: none;
-  }
-}
+
 .header .primary-header-inner .header-right-wrap .header-right .sidebar-icon {
   background-color: var(--bz-color-theme-secondary);
   height: 45px;
@@ -3043,11 +3028,33 @@ START: Header CSS
     margin-right: 20px;
   }
 }
-@media only screen and (max-width: 767px) {
+
+@media only screen and (max-width: 560px) {
   .header .primary-header-inner .header-right-wrap .header-right .search-icon {
-    display: none;
+    margin-right: 5px;
+  }
+  .header .primary-header-inner .header-right-wrap .header-right .sidebar-icon{
+    margin: 0;
+  }
+  .header .primary-header-inner .header-right-wrap .header-right .header-btn{
+    margin-right: 5px;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .header .primary-header-inner .header-right-wrap .header-right .header-btn {
+      display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header .primary-header-inner .header-right-wrap .header-right .search-icon {
+      display: none;
+  }
+
+
+}
+
 @media only screen and (max-width: 992px) {
   .header .primary-header-inner .mean-push {
     display: none;
@@ -4312,8 +4319,8 @@ START: Header CSS
   border-radius: 50%;
 }
 .about-content-2 .about-items .about-item .content .title {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   margin-bottom: 10px;
 }
 .about-content-2 .about-items .about-item .content p {
@@ -5891,10 +5898,10 @@ START: Header CSS
   border-radius: 15px;
 }
 
-.team-counter-area h2 {
+.team-counter-area h2,
+.section-heading h2 {
   font-size: 35px;
   font-weight: 600;
-  text-align: center;
   margin-bottom: 25px;
 }
 .team-counter-area .team-counter {
@@ -7208,9 +7215,8 @@ START: Contact CSS
 ----------------------------------------*/
 .request-section {
   background-color: #EBF3FF;
-  position: relative;
-  z-index: 1;
   overflow: hidden;
+  padding: 80px 0px
 }
 .request-section .bg-color {
   background-color: var(--bz-color-common-white);
@@ -7612,7 +7618,7 @@ START: Contact CSS
 
 .service-process-card {
   background-color: var(--bz-color-grey-1);
-  padding: 40px;
+  padding: 20px;
   border-radius: 15px;
   overflow: hidden;
   position: relative;
@@ -7813,6 +7819,7 @@ START: Contact CSS
   width: 100%;
   height: 100%;
   border-radius: 15px;
+  margin-left: 20px;
 }
 @media only screen and (max-width: 992px) {
   .faq-img {
@@ -9494,13 +9501,13 @@ START: Blog Details CSS
     margin-bottom: 40px;
   }
 }
-.blog-details-content .details-title {
+.blog-details-content h2 {
   font-size: 30px;
   font-weight: 700;
   text-transform: capitalize;
 }
 @media only screen and (max-width: 992px) {
-  .blog-details-content .details-title {
+  .blog-details-content h2 {
     font-size: 24px;
   }
 }
@@ -9895,7 +9902,7 @@ blockquote .content .author span {
   font-weight: 400;
   box-shadow: none;
   border: none;
-  padding: 15.5px 30px;
+  padding: 15.5px 15px;
   border-radius: 0;
   margin-bottom: 25px;
   width: 100%;
@@ -10183,9 +10190,10 @@ blockquote .content .author span {
   object-fit: cover;
   border-radius: 15px;
 }
-.service-details-content .details-title {
+.service-details-content h2 {
   font-size: 30px;
   font-weight: 600;
+  margin-bottom: 25px;
 }
 .service-details-content .service-thumb-wrap {
   background-color: #F3F4F6;
@@ -10193,49 +10201,57 @@ blockquote .content .author span {
   border-radius: 15px;
   display: grid;
   align-items: center;
-  grid-template-columns: 185px 185px 1fr;
-  grid-gap: 15px;
 }
-@media (max-width: 1200px) {
-  .service-details-content .service-thumb-wrap {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media only screen and (max-width: 767px) {
-  .service-details-content .service-thumb-wrap {
-    grid-template-columns: 1fr;
-    padding: 30px 20px;
-  }
-}
+
 .service-details-content .service-thumb-wrap .service-thumb {
   height: 205px;
   border-radius: 15px;
 }
-.service-details-content .service-thumb-wrap .thumb-list {
+
+.service-thumb-wrap ul {
   list-style: none;
+  padding-left: 0;
+  background: #F3F4F6;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 25px;
 }
-.service-details-content .service-thumb-wrap .thumb-list li {
-  background-color: var(--bz-color-common-white);
-  font-family: var(--bz-ff-body);
-  color: var(--bz-color-heading-primary);
-  padding: 7px 20px;
+
+.service-thumb-wrap ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  color: #333;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
 }
+
+ .service-thumb-wrap ul li::before {
+  content: '\f00c'; 
+  font-family: FontAwesome;
+  font-weight: 900;
+  color: #1958a7;
+  position: absolute;
+  left: 0; 
+  font-size: 14px;
+  padding-right: 20px;
+}
+
+
 @media (max-width: 1200px) {
-  .service-details-content .service-thumb-wrap .thumb-list li {
+  .service-details-content .service-thumb-wrap ul li {
     font-size: 14px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .service-details-content .service-thumb-wrap .thumb-list li {
+  .service-details-content .service-thumb-wrap ul li {
     font-size: 12px;
   }
 }
-.service-details-content .service-thumb-wrap .thumb-list li:not(:last-of-type) {
+.service-details-content .service-thumb-wrap ul li:not(:last-of-type) {
   margin-bottom: 15px;
 }
-.service-details-content .service-thumb-wrap .thumb-list li i {
+.service-details-content .service-thumb-wrap ul li i {
   color: var(--bz-color-theme-primary);
   margin-right: 10px;
 }
@@ -10864,6 +10880,10 @@ START: Footer CSS
   padding: 80px 0;
 }
 
+.map-padding{
+  padding: 80px 0 0;
+}
+
 .testimonial-padding{
   padding-bottom: 80px;
 }
@@ -10945,36 +10965,36 @@ START: Footer CSS
   margin: 0;
 }
 
+@media (max-width: 768px) { /* Tablet */
+  .team-counter-area ul li {
+      flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) { /* Mobile */
+  .team-counter-area ul li {
+      flex: 1 1 100%;
+  }
+}
+
 .team-counter-area li {
-  flex: 1 1 calc(33.333% - 20px); /* 3 columns with some space in between */
+  flex: 1 1 calc(33.333% - 20px); 
   position: relative;
-  padding-left: 30px; /* space for the icon */
+  padding-left: 30px;
   margin-bottom: 10px;
   color: #333;
   font-size: 18px;
   font-weight: 400;
 }
 
-@media (max-width: 768px) { /* Tablet */
-    .team-counter-area li {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-@media (max-width: 576px) { /* Mobile */
-    .team-counter-area li {
-        flex: 1 1 100%;
-    }
-}
-
 .team-counter-area li::before {
-  content: '\f00c'; /* Example: Font Awesome checkmark icon, or replace with your desired icon */
-  font-family: FontAwesome; /* Make sure to include FontAwesome in your project */
-  color: blue;
+  content: '\f00c'; 
+  font-family: FontAwesome; 
+  color: #1958a7;
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 14px; /* Adjust size as needed */
+  font-size: 14px; 
 }
 
 .booknow-side{
@@ -11033,6 +11053,10 @@ START: Footer CSS
   .section-padding{
     padding: 35px 0;
   }
+
+  .map-padding{
+    padding: 35px 0 0;
+  }
   
   .testimonial-padding{
     padding-bottom: 35px;
@@ -11065,4 +11089,200 @@ START: Footer CSS
   .hide-on-mobile{
     display: none;
   }
+}
+
+blockquote {
+    position: relative;
+    padding: 20px 40px;
+    margin: 20px 0;
+    font-style: italic;
+    background-color: #f9f9f9;
+    border-left: 10px solid #ccc;
+}
+
+blockquote::before {
+    content: "“";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 40px;
+    color: #ccc;
+    font-family: Georgia, serif;
+}
+
+blockquote::after {
+    content: "”";
+    position: absolute;
+    right: 10px;
+    bottom: -10px;
+    font-size: 40px;
+    color: #ccc;
+    font-family: Georgia, serif;
+}
+
+.hover-content {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hover-content .hover-text {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.hover-content:hover  .content{
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.hover-content:hover .hover-text {
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px; /* Adjust this height to accommodate the full content */
+}
+
+.hover-content .icon {
+  transition: transform 0.3s ease;
+}
+
+.hover-content:hover .icon {
+  transform: scale(1.1);
+}
+
+.about-section-item {
+  box-shadow: 0px 11px 44px rgba(12, 21, 38, 0.09);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.service-process-card p{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.service-process-card img{
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.service-process-card img {
+  transition: filter 0.3s ease;
+}
+
+.service-process-card:hover img {
+  filter: brightness(0) invert(1);
+}
+.about-content-4 h2{
+  font-size: 40px;
+}
+
+.about-content-4 p{
+  font-size: 16px;
+}
+
+.form-item label{
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.form-item .radio-style label{
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.blog-contact-form h2{
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.section-title-heading h2{
+  text-align: left;
+}
+
+.request-form-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.request-form-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.hide-on-mobile {
+  display: block;
+}
+
+@media only screen and (max-width: 767px) {
+  
+}
+
+@media only screen and (max-width: 992px) {
+  .header .primary-header-inner {
+      padding: 20px 0;
+  }
+}
+
+.pricing-item .pricing-list{
+  height: 320px; 
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.pricing-item .pricing-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pricing-item .pricing-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.pricing-item .pricing-list::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+.pricing-item .pricing-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

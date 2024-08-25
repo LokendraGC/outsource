@@ -30,34 +30,55 @@
 			<div class="middle-header">
 				<div class="container-2">
 					<div class="middle-header-inner">
-						<div class="header-logo">
-							<a href="index.html">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/outsourcebookkeeping-logo.svg" alt="logo">
-							</a>
-						</div>
+					
+						<?php
+						$outsource_logo = get_template_directory_uri() . '/assets/img/logo/outsourcebookkeeping-logo.svg';
+						$header_logo = get_field('wtn_header_logo', 'options');
+
+						if (isset($header_logo['url'])): ?>
+							<div class="header-logo">
+								<a href="<?php echo esc_url(site_url('')); ?>">
+									<img src="<?php echo esc_url($header_logo['url']); ?>" alt="logo">
+								</a>
+							</div>
+						<?php else: ?>
+							<div class="header-logo">
+								<a href="<?php echo esc_url(site_url('')); ?>">
+									<img src="<?php echo esc_url($outsource_logo); ?>" alt="logo">
+								</a>
+							</div>
+						<?php endif; ?>
+
 						<div class="header-items-wrap">
+							<?php if( $phone_num = get_field('wtn_phone_number','options') ): ?>
 							<div class="header-item">
 								<div class="icon"><i class="fa-sharp fa-solid fa-phone"></i></div>
 								<div class="content">
 									<span>Call Us</span>
-									<a href="tel:+0411306623">0411306623</a>
+									<a href="tel:<?php echo $phone_num; ?>"><?php echo $phone_num; ?></a>
 								</div>
 							</div>
+						<?php endif; ?>
+
+							<?php if( $mail = get_field('wtn_email_address','options') ): ?>
 							<div class="header-item">
 								<div class="icon"><i class="fa-sharp fa-solid fa-envelope"></i></div>
 								<div class="content">
 									<span>Mail For Support</span>
 									<a
-										href="mailto:info@outsourcebookkeeping.com.au">info@outsourcebookkeeping.com.au</a>
+										href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a>
 								</div>
 							</div>
+						<?php endif; ?>
+						<?php if( $address = get_field('wtn_address','options') ): ?>
 							<div class="header-item">
 								<div class="icon"><i class="fa-sharp fa-solid fa-location-dot"></i></div>
 								<div class="content">
 									<span>Address</span>
-									<p class="address mb-0">Dee Why NSW 2099</p>
+									<p class="address mb-0"><?php echo $address; ?></p>
 								</div>
 							</div>
+						<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -234,50 +255,85 @@
 				</svg>
 			</button>
 			<div class="side-menu-content">
-				<div class="side-menu-logo">
-					<a href="index.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/outsourcebookkeeping-logo.svg" alt="logo"></a>
-				</div>
+				<?php
+						$outsource_logo = get_template_directory_uri() . '/assets/img/logo/outsourcebookkeeping-logo.svg';
+						$header_logo = get_field('wtn_header_logo', 'options');
+
+						if (isset($header_logo['url'])): ?>
+							<div class="side-menu-logo">
+								<a href="<?php echo esc_url(site_url('')); ?>">
+									<img src="<?php echo esc_url($header_logo['url']); ?>" alt="logo">
+								</a>
+							</div>
+						<?php else: ?>
+							<div class="side-menu-logo">
+								<a href="<?php echo esc_url(site_url('')); ?>">
+									<img src="<?php echo esc_url($outsource_logo); ?>" alt="logo">
+								</a>
+							</div>
+						<?php endif; ?>
+
 				<div class="side-menu-wrap"></div>
+				<?php if( $sidebar_about = get_field('sidebar_details','options') ): ?>
 				<div class="side-menu-about">
 					<div class="side-menu-header">
 						<h3>About Us</h3>
 					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea
-						commodo consequat.</p>
-					<a href="contact.html" class="bz-primary-btn">Contact Us</a>
+					<?php echo $sidebar_about; ?>
+					<a href="<?php echo site_url('contact-us'); ?>" class="bz-primary-btn">Contact Us</a>
 				</div>
+			<?php endif; ?>
 				<div class="side-menu-contact">
 					<div class="side-menu-header">
 						<h3>Contact Us</h3>
 					</div>
 					<ul class="side-menu-list">
+						<?php if( $address = get_field('wtn_address','options') ): ?>
 						<li>
 							<i class="fas fa-map-marker-alt"></i>
-							<p>Dee Why NSW 2099</p>
+							<p><?php echo $address; ?></p>
 						</li>
+					<?php endif; ?>
+					<?php if( $phone_num = get_field('wtn_phone_number','options') ): ?>
 						<li>
 							<i class="fas fa-phone"></i>
-							<a href="tel:+0411306623">+0411306623</a>
+							<a href="tel:<?php echo $phone_num; ?>"><?php echo $phone_num; ?></a>
 						</li>
+					<?php endif; ?>
+					<?php if( $mail = get_field('wtn_email_address','options') ): ?>
 						<li>
 							<i class="fas fa-envelope-open-text"></i>
-							<a href="mailto:info@outsourcebookkeeping.com.au">info@outsourcebookkeeping.com.au</a>
+							<a href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a>
 						</li>
+					<?php endif; ?>
 					</ul>
 				</div>
+				<?php if( have_rows('wtn_social_media','options') ): ?>
 				<ul class="side-menu-social">
-					<li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-					<li class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></li>
-					<li class="behance"><a href="#"><i class="fab fa-behance"></i></a></li>
-					<li class="g-plus"><a href="#"><i class="fab fa-fab fa-google-plus"></i></a></li>
+					<?php
+					 while( have_rows('wtn_social_media','options') ): the_row();
+
+					 	$icon = get_sub_field('wtn_media','options');
+					 	$media_link = get_sub_field('wtn_link','options');
+
+					 	if( $media_link ){
+					 		$media_linkk = $media_link;
+					 		$media_target = '_blank'; 
+					 	}else{
+					 		$media_linkk = '#';
+					 		$media_target = '_self';
+					 	}
+					 ?>
+					<li class="facebook"><a href="<?php echo $media_linkk; ?>" target="<?php echo $media_target; ?>"><i class="fab <?php echo $icon; ?>"></i></a></li>
+				<?php endwhile; ?>
 				</ul>
+			<?php endif; ?>
 			</div>
 		</div>
 		<!--/.sidebar-area-->
 		
 <div>
-    <a href="#" class="booknow-side">
+    <a href="<?php echo site_url('contact-us'); ?>" class="booknow-side">
         <span class="book-text">
             Contact Us
         </span>

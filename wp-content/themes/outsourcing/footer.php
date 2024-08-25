@@ -21,30 +21,69 @@
 		<div class="row footer-wrap">
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-widget">
-					<div class="widget-header">
-						<div class="footer-logo">
-							<a href="index.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/outsourcebookkeeping-footer.svg"
-									alt="img"></a>
+					<?php if( $footer_logo = get_field('wtn_footer_logo','options') ): ?>
+						<div class="widget-header">
+							<div class="footer-logo">
+								<a href="<?php echo site_url(''); ?>">
+									<img src="<?php echo $footer_logo['url']; ?>"
+									alt="footer logo">
+								</a>
+							</div>
 						</div>
-					</div>
+
+					<?php else: ?>
+						<div class="widget-header">
+							<div class="footer-logo">
+								<a href="<?php echo site_url(''); ?>">
+									<img src="<?php echo get_template_directory_uri(). "/assets/img/logo/outsourcebookkeeping-footer.svg"; ?>"
+									alt="footer logo">
+								</a>
+							</div>
+						</div>
+					<?php endif; ?>
+
 					<div>
+						<?php if( $address = get_field('wtn_address','options') ): ?>
 						<div class="footer-contact">
-							<i class="fa fa-location-dot"></i>Dee Why NSW 2099
+							<i class="fa fa-location-dot"></i><?php echo $address; ?>
 						</div>
+					<?php endif; ?>
+
+					<?php if( $phone_num = get_field('wtn_phone_number','options') ): ?>
 						<div class="footer-contact">
-							<i class="fa fa-phone"></i><a href="tel:0411306623">0411306623</a>
+							<i class="fa fa-phone"></i><a href="tel:<?php echo $phone_num; ?>"><?php echo $phone_num; ?></a>
 						</div>
+					<?php endif; ?>
+
+					<?php if( $mail = get_field('wtn_email_address','options') ): ?>
 						<div class="footer-contact">
 							<i class="fa fa-envelope"></i><a
-								href="tel:info@outsourcebookkeeping.com.au">info@outsourcebookkeeping.com.au</a>
+								href="tel:<?php echo $mail; ?>"><?php echo $mail; ?></a>
 						</div>
+					<?php endif; ?>
 					</div>
+
+					<?php if( have_rows('wtn_social_media','options') ): ?>
 					<ul class="footer-social">
-						<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-						<li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
-						<li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-						<li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+
+						<?php
+					 while( have_rows('wtn_social_media','options') ): the_row();
+
+					 	$icon = get_sub_field('wtn_media','options');
+					 	$media_link = get_sub_field('wtn_link','options');
+
+					 	if( $media_link ){
+					 		$media_linkk = $media_link;
+					 		$media_target = '_blank'; 
+					 	}else{
+					 		$media_linkk = '#';
+					 		$media_target = '_self';
+					 	}
+					 ?>
+							<li class="facebook"><a href="<?php echo $media_linkk; ?>" target="<?php echo $media_target; ?>"><i class="fa-brands <?php echo $icon; ?>"></i></a></li>
+					<?php endwhile; ?>
 					</ul>
+				<?php endif; ?>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-6">
@@ -80,7 +119,9 @@
 					<div class="widget-header">
 						<h3 class="widget-title">Our Newsletter</h3>
 					</div>
-					<p>Sign up to Private's weekly newsletter to get the latest updates.</p>
+					<?php if( $footer_news = get_field('ob_footer_description','options') ): ?>
+					<p><?php echo $footer_news; ?></p>
+				<?php endif; ?>
 					<div class="footer-form form-2 mb-20">
 						<form action="#" class="rr-subscribe-form">
 							<input class="form-control" type="email" name="email" placeholder="Email address">
@@ -96,8 +137,8 @@
 		<div class="container-2">
 			<div class="row copyright-content">
 				<div class="col-md-6">
-					<p>© 2024 Copyright Outsource Bookkeeping. Developed By <a href="https://webtechnepal.com/"
-							target="_blank">Webtech Nepal</a></p>
+					<p>© <?php echo Date('Y'); ?> Copyright <?php echo bloginfo(); ?>. Developed By <a href="https://webtechnepal.com/"
+						target="_blank">Webtech Nepal</a></p>
 				</div>
 				<div class="col-md-6">
 					<ul class="copy-list">
