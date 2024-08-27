@@ -163,6 +163,7 @@
                     // Like pages
 
                     // Cpt archive
+                    
                     if ( get_post_type_archive_link( $cpt_obj->name ) ) {
                         $breadcrumb .= '<li><a href="' . get_post_type_archive_link( $cpt_obj->name ) . '">' . $cpt_obj->labels->name . '</a></li>';
                     }

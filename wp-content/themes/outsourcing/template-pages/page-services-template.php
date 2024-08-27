@@ -19,7 +19,7 @@ if( $service_data->have_posts() ):
 	?>
 
 	<section class="service-section-4 section-padding">
-		<div class="container">
+		<div class="container-2">
 			<div class="row gy-4 fade-wrapper">
 				<?php
 				while( $service_data->have_posts() ):$service_data->the_post();

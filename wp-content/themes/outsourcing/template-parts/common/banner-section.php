@@ -6,9 +6,10 @@
 	</div>
 	<div class="container-2">
 		<div class="page-header-content">
+			 <h1 class="title"><?php the_title(); ?></h1>
 			<?php echo raithaane_breadcrumb(); ?>
-			<!-- <h1 class="title">About Us</h1>
-			<ul class="breadcrumb">
+
+			<!-- <ul class="breadcrumb">
 				<li><a href="index.html">Home</a></li>
 				<li class="active">About</li>
 			</ul> -->

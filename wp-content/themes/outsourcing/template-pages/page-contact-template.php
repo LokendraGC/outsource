@@ -8,7 +8,7 @@ get_header();
 	<!-- ./ page-header -->
 
 	<section class="contact-section section-padding">
-		<div class="container">
+		<div class="container-2">
 			<div class="row gy-lg-0 gy-5">
 				<div class="col-lg-7">
 					<div class="blog-contact-form">

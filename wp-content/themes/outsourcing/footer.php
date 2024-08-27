@@ -86,34 +86,18 @@
 				<?php endif; ?>
 				</div>
 			</div>
+
+				<?php if(is_active_sidebar('footer-menu-first')): ?>
 			<div class="col-lg-3 col-md-6 col-6">
-				<div class="footer-widget widget-space">
-					<div class="widget-header">
-						<h3 class="widget-title">Quick Links</h3>
-					</div>
-					<ul class="footer-list">
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Why Us</a></li>
-						<li><a href="#">Testimonials</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Contact Us</a></li>
-					</ul>
-				</div>
+					<?php dynamic_sidebar('footer-menu-first'); ?>
 			</div>
+				<?php endif; ?>
+
+				<?php if(is_active_sidebar('footer-menu-second')): ?>
 			<div class="col-lg-3 col-md-6 col-6">
-				<div class="footer-widget">
-					<div class="widget-header">
-						<h3 class="widget-title">Service</h3>
-					</div>
-					<ul class="footer-list">
-						<li><a href="#">Bookkeeping</a></li>
-						<li><a href="#">Payroll</a></li>
-						<li><a href="#">Invoicing</a></li>
-						<li><a href="#">Our Work</a></li>
-						<li><a href="#">Management Reporting</a></li>
-					</ul>
-				</div>
+					<?php dynamic_sidebar('footer-menu-second'); ?>
 			</div>
+				<?php endif; ?>
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-widget widget-space">
 					<div class="widget-header">
@@ -153,6 +137,18 @@
 <!-- ./ footer-section -->
 
 <div id="scroll-percentage"><span id="scroll-percentage-value"></span></div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// Select the element after the DOM is fully loaded
+		let menu_class = document.querySelectorAll('.menu');
+
+		menu_class.forEach(function(menuItem) {
+			menuItem.classList.add('footer-list');
+		});
+	});
+</script>
+
 
 <?php wp_footer(); ?>
 

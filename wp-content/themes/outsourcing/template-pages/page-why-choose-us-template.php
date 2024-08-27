@@ -8,7 +8,7 @@ get_header();
 
 
 	<section class="service-details section-padding">
-		<div class="container">
+		<div class="container-2">
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="service-details-content service-thumb-wrap">

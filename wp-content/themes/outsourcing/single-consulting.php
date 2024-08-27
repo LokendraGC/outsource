@@ -19,6 +19,7 @@ get_template_part('template-parts/common/banner-section');
 </section>
 <!-- ./ request-section -->
 
+<?php if( $content_desc = get_field('ob_content_description') ): ?>
 <section class="team-details" data-background="assets/img/bg-img/service-bg.png" style="background-image: url(assets/img/bg-img/service-bg.png);">
 	<div class="container-2">
 		<div class="row">
@@ -26,9 +27,9 @@ get_template_part('template-parts/common/banner-section');
 				<div class="team-details-wrap section-padding">
 					<div class="team-counter-area">
 						<?php 
-						if( $content_desc = get_field('ob_content_description') ):
+						
 							echo $content_desc;
-						endif;	
+					
 						?>
 						<?php if( have_rows('ob_fact__detailss') ): ?>
 							<div class="row gy-lg-0 gy-4 justify-content-center">
@@ -63,6 +64,7 @@ get_template_part('template-parts/common/banner-section');
 		</div>
 	</div>
 </section>
+<?php 	endif;	 ?>
 <!-- ./ team-details -->
 
 <?php if( have_rows('ob_pricing_details') ): ?>

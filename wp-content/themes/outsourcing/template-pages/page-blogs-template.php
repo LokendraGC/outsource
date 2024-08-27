@@ -19,7 +19,7 @@ $blogs_data = new WP_Query($args);
 if( $blogs_data->have_posts() ):
 	?>
 	<section class="blog-section section-padding">
-		<div class="container">
+		<div class="container-2">
 			<div class="row gy-4 justify-content-center">
 				
 				<?php

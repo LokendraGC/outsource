@@ -93,118 +93,17 @@
 						</div>
 						<div class="header-menu-wrap">
 							<div class="mobile-menu-items">
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li class="menu-item-has-children">
-										<a href="service.html">Services</a>
-										<ul>
-											<li>
-												<a href="#">Admin Services</a>
-												<ul>
-													<li><a href="service-details.html">Business Setup / Registration</a>
-													</li>
-													<li><a href="service-details.html">Filing </a></li>
-													<li><a href="service-details.html">Workers Comp</a></li>
-													<li><a href="service-details.html">All Compliance and reporting</a>
-													</li>
-												</ul>
-											</li>
-											<li><a href="service-details.html">Bookkeeping</a></li>
-											<li><a href="service-details.html">Payroll</a></li>
-											<li><a href="service-details.html">Invoicing</a></li>
-											<li><a href="service-details.html">Accounts Receivables</a></li>
-											<li><a href="service-details.html">Accounts Payables</a></li>
-											<li><a href="service-details.html">Reporting weekly/ monthly/ quartery/
-													annual</a></li>
-											<li><a href="service-details.html">BAS / IAS lodgment</a></li>
-											<li><a href="service-details.html">Management reporting</a></li>
-											<li><a href="service-details.html">Budgeting Forecasting</a></li>
-											<li><a href="service-details.html">Tax planning and consulting</a></li>
-											<li><a href="service-details.html">STP Finalisation</a></li>
-											<li><a href="service-details.html">Superannuation processing</a></li>
-											<li><a href="service-details.html">SGC statement</a></li>
-										</ul>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Consulting</a>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Industries</a>
-										<ul>
-											<li><a href="#">Hospitality (Café, restaurant, Hotel, Club)</a></li>
-											<li><a href="#">Retail</a></li>
-											<li><a href="#">Building & Construction</a></li>
-											<li><a href="#">Health, beauty & Wellness</a></li>
-											<li><a href="#">E-commerce</a></li>
-											<li><a href="#">All types of small business</a></li>
-										</ul>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Business</a>
-										<ul>
-											<li><a href="#">Startup</a></li>
-											<li><a href="#">Growing</a></li>
-											<li><a href="#">Stablished</a></li>
-											<li><a href="#">SME</a></li>
-											<li><a href="#">Sole Trader</a></li>
-											<li><a href="#">Trust</a></li>
-											<li><a href="#">Company</a></li>
-										</ul>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Software Expertise</a>
-										<ul>
-											<li>
-												<a href="#">Accounting Sofware</a>
-												<ul>
-													<li><a href="#">Xero</a></li>
-													<li><a href="#">Quickbook</a></li>
-													<li><a href="#">MYOB</a></li>
-												</ul>
-											</li>
-											<li>
-												<a href="#">Bills/ Receipts software</a>
-												<ul>
-													<li><a href="#">HUBDOC</a></li>
-													<li><a href="#">Dext/Receipt bank</a></li>
-													<li><a href="#">Ezybills and More</a></li>
-												</ul>
-											</li>
-											<li>
-												<a href="#">Payroll Software</a>
-												<ul>
-													<li><a href="#">Deputy</a></li>
-													<li><a href="#">XeroMe</a></li>
-													<li><a href="#">EmploymentHero</a></li>
-													<li><a href="#">Tradify and more</a></li>
-												</ul>
-											</li>
-											<li>
-												<a href="#">All Major POS Software</a>
-												<ul>
-													<li><a href="#">EPOSNOW</a></li>
-													<li><a href="#">Square</a></li>
-													<li><a href="#">Lightspeed / Kounta</a></li>
-													<li><a href="#">Shopify and more</a></li>
-												</ul>
-											</li>
-										</ul>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Pricing</a>
-									</li>
-									<li class="menu-item-has-children">
-										<a href="#">Resources</a>
-										<ul>
-											<li><a href="#">About Us</a></li>
-											<li><a href="#">Why Choose Us</a></li>
-											<li><a href="#">Contact Us</a></li>
-											<li><a href="#">Career</a></li>
-											<li><a href="#">Blogs & Newsletter</a></li>
-											<li><a href="#">Get Quote</a></li>
-										</ul>
-									</li>
-								</ul>
+								<?php
+                            $menu_args = array(
+                               'theme_location'  => 'menu-1',  
+                               'menu_class'      => '',  
+                               'container'       => false,
+                                'depth'           => 3,  //1 means no dropdown
+                                'walker'          => new Raithaane_Walker_Nav_Menu(),
+                         );
+
+                            wp_nav_menu($menu_args);
+                            ?>
 							</div>
 						</div>
 						<!-- /.header-menu-wrap -->

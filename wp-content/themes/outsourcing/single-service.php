@@ -28,13 +28,13 @@
 	</section>
 	<!-- ./ request-section -->
 
+
+	<?php if( $skills = get_field('ob_skill_content') ): ?>
 	<section class="team-details" data-background="<?php echo get_template_directory_uri(); ?>/assets/img/bg-img/service-bg.png" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/bg-img/service-bg.png);">
 		<div class="container-2">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="team-details-wrap section-padding">
-
-						<?php if( $skills = get_field('ob_skill_content') ): ?>
 						<div class="team-counter-area">
 							<?php echo $skills; ?>
 								<?php if( have_rows('skill_and_experties') ): ?>
@@ -62,12 +62,12 @@
 							</div>
 							<?php endif; ?>
 						</div>
-					<?php endif; ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+<?php endif; ?>
 	<!-- ./ team-details -->
 
 	<?php if( $data_entry = get_field('data_entry_details') ): ?>

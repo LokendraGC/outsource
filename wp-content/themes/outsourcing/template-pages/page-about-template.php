@@ -1,12 +1,11 @@
 <?php 
 get_header();
 /* Template Name: About Us */
-?>
 
-	<?php get_template_part('template-parts/common/banner-section') ?>
+ get_template_part('template-parts/common/banner-section') ?>
 
 	<section class="about-section-4 section-padding"> 
-		<div class="container">
+		<div class="container-2">
 			<div class="row align-items-center fade-wrapper">
 				<div class="col-lg-5 col-md-12">
 					<div class="about-img-3 img-reveal" style="visibility: visible;">
@@ -32,7 +31,7 @@ get_header();
 	<!-- ./ about-section -->
 
 	<section class="team-details" data-background="<?php echo get_template_directory_uri(); ?>/assets/img/bg-img/service-bg.png" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/bg-img/service-bg.png);">
-		<div class="container-2">
+		<div class="container-2-2">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="team-details-wrap section-padding">
@@ -83,7 +82,7 @@ get_header();
 
 		<?php if( have_rows('our_promises') ): ?>
 		<section class="service-process section-padding">
-			<div class="container">
+			<div class="container-2">
 				<div class="section-heading text-center">
 					<p class="sub-heading" data-text-animation="fade-in" data-duration="1.5"><span class="left-shape"></span>Commitment to Quality</p>
 					<h2 class="section-title mb-0" data-text-animation data-split="word" data-duration="1">Our Promises</h2>
