@@ -1,8 +1,47 @@
-<?php get_header(); ?>
+<?php 
+
+get_header();  
+
+$post_id = get_the_ID(); 
+$taxonomy = 'service-category'; 
+
+$terms = get_the_terms($post_id, $taxonomy);
 
 
-<!-- Banner Section -->
-<?php get_template_part('template-parts/common/banner-section') ?>
+$banner_image = get_field('banner_image');
+if( $banner_image ){
+	$banner_img = $banner_image['url'];
+}else{
+	$banner_img = get_template_directory_uri() . "/assets/img/banner/banner-breadcrumb.jpg";
+}
+?>
+
+<section class="page-header">
+	<div class="bg-img" data-background="<?php echo $banner_img; ?>"></div>
+	<div class="overlay"></div>
+	<div class="shapes">
+		<div class="shape shape-2"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/shapes/pager-header-shape-2.png" alt="shape"></div>
+	</div>
+	<div class="container-2">
+		<div class="page-header-content">
+			<h1 class="title"><?php the_title(); ?></h1>
+			<ul class="breadcrumb">
+				<li><a href="<?php echo site_url('/'); ?>">Home</a></li>
+				<?php 
+				if( $terms ){
+					foreach ($terms as $term) {
+						?>
+
+						<li><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></li>
+						<?php	
+					}
+				}
+				?>
+				<li class="active"><?php the_title(); ?></li>
+			</ul>
+		</div>
+	</section>
+
 
 <section class="faq-section section-padding">
 	<div class="container-2">

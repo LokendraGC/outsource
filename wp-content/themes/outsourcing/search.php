@@ -10,44 +10,49 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+	<?php 
+	$search_text = $_GET['s'];
+	$ppp = -1;
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'outsourcing' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+	$args = array(
+		'post_type' =>array('service', 'software','business','consulting','pricing','industry'),
+		'post_status' => 'publish',
+		'posts_per_page' => $ppp,
+		's' => $search_text,
+		'search_columns' => array( 'post_title' ),
+		'paged' => $paged,
+	);
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+	$post_data = new WP_Query( $args );
+	if( $post_data ):
+	?>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+	<section class="service-section-4 section-padding">
+	<div class="container">
+		<div class="row gy-4 fade-wrapper">
+				
+			<?php while( $post_data->have_posts() ):$post_data->the_post(); ?>
+			<div class="col-lg-4 col-md-6 d-flex">
+				<div class="service-item-4 fade-top">
+					<div class="service-content">
+						<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<p><?php echo wp_trim_words(get_the_content(),15); ?></p>
+						<a href="<?php the_permalink(); ?>" class="read-more">Read Details <i class="fa-regular fa-arrow-right"></i></a>
+					</div>
+				</div>
+			</div>
+		<?php
+		 endwhile;
+		 wp_reset_postdata();
+		 ?>
 
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+</main>
 
 <?php
-get_sidebar();
 get_footer();

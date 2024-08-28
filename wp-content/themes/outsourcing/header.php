@@ -110,9 +110,11 @@
 						<div class="header-right-wrap">
 							<div class="header-right">
 								<a href="#" class="header-btn hide-on-mobile">Get A Quote</a>
+								
 								<div class="search-icon dl-search-icon">
 									<i class="fa-regular fa-magnifying-glass"></i>
 								</div>
+
 								<div class="sidebar-icon">
 									<button class="sidebar-trigger open">
 										<span></span>
@@ -132,8 +134,8 @@
 
 		<div id="popup-search-box">
 			<div class="box-inner-wrap d-flex align-items-center">
-				<form id="form" action="#" method="get" role="search">
-					<input id="popup-search" type="text" name="s" placeholder="Type keywords here...">
+				<form id="form" action="<?php echo site_url('/'); ?>" method="GET" role="search">
+					<input id="popup-search" type="text" name="s" id="search" placeholder="Type keywords here...">
 				</form>
 				<div class="search-close"><i class="fa-sharp fa-regular fa-xmark"></i></div>
 			</div>

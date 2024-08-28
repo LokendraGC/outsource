@@ -8,53 +8,23 @@
  */
 
 get_header();
+
+get_template_part('template-parts/common/banner-section');
+
 ?>
 
-	<main id="primary" class="site-main">
-
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'outsourcing' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'outsourcing' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'outsourcing' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$outsourcing_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'outsourcing' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$outsourcing_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-
-<?php
-get_footer();
+	<section class="error-section section-padding">
+		<div class="container">
+			<div class="error-content text-center">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/404-error-page.gif" alt="img">
+				<h2 class="text">Page Not Found</h2>
+				<p class="mb-30">The page you are looking for was moved, removed, renamed <br>
+					or never existed.
+				</p>
+				<a href="<?php echo site_url('/'); ?>" class="bz-primary-btn">Back to home</a>
+			</div>
+		</div>
+	</section>
+	<!-- ./ error-section -->
+	<?php
+	get_footer();

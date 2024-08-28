@@ -1,23 +1,48 @@
 <?php 
 
 get_header();  
-get_template_part('template-parts/common/banner-section');
 
+$post_id = get_the_ID(); 
+$taxonomy = 'software-category'; 
+
+$terms = get_the_terms($post_id, $taxonomy);
+
+
+$banner_image = get_field('banner_image');
+if( $banner_image ){
+	$banner_img = $banner_image['url'];
+}else{
+	$banner_img = get_template_directory_uri() . "/assets/img/banner/banner-breadcrumb.jpg";
+}
 ?>
 
-<!-- ./ page-header -->
-
-<section class="faq-section section-padding">
-	<div class="container-2">
-		<div class="about-content-4">
-			<div class="section-heading">
-				<h2 class="section-title mb-0" data-text-animation data-split="word" data-duration="1"><?php the_title(); ?></h2>
-			</div>
-			<?php the_content(); ?>
-		</div>
+<section class="page-header">
+	<div class="bg-img" data-background="<?php echo $banner_img; ?>"></div>
+	<div class="overlay"></div>
+	<div class="shapes">
+		<div class="shape shape-2"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/shapes/pager-header-shape-2.png" alt="shape"></div>
 	</div>
-</section>
-<!-- ./ request-section -->
+	<div class="container-2">
+		<div class="page-header-content">
+			<h1 class="title"><?php the_title(); ?></h1>
+			<ul class="breadcrumb">
+				<li><a href="<?php echo site_url('/'); ?>">Home</a></li>
+				<?php 
+				if( $terms ){
+					foreach ($terms as $term) {
+						?>
+
+						<li><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></li>
+						<?php	
+					}
+				}
+				?>
+				<li class="active"><?php the_title(); ?></li>
+			</ul>
+		</div>
+	</section>
+
+
 
 <section class="team-details" data-background="assets/img/bg-img/service-bg.png" style="background-image: url(assets/img/bg-img/service-bg.png);">
 	<div class="container-2">

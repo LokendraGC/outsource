@@ -5559,7 +5559,6 @@ START: Header CSS
   height: 410px;
   position: relative;
   z-index: 1;
-  border-radius: 15px;
   overflow: hidden;
 }
 .team-card .overlay {
@@ -5569,14 +5568,13 @@ START: Header CSS
   position: absolute;
   bottom: 0;
   left: 0;
-  border-radius: 15px;
 }
 .team-card .team-member {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: end;
-  height: 375px;
+  height: 100%;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -5584,9 +5582,9 @@ START: Header CSS
   z-index: -1;
 }
 .team-card .team-member img {
-  filter: saturate(0) contrast(110%);
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 @media only screen and (max-width: 992px) {
   .team-card .team-member img {
@@ -11147,7 +11145,7 @@ blockquote::after {
 .hover-content:hover .hover-text {
   opacity: 1;
   visibility: visible;
-  max-height: 500px; /* Adjust this height to accommodate the full content */
+  max-height: 200px; 
 }
 
 .hover-content .icon {
@@ -11272,17 +11270,183 @@ blockquote::after {
   width: 8px;
 }
 
-.pricing-item .pricing-list::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
+.hover-content p{
+  height: 412px; 
+  overflow-y: auto;
 }
 
-.pricing-item .pricing-list::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
-  border: 2px solid #f1f1f1;
+.hover-content p{
+  height: 200px; 
+  overflow-y: auto;
 }
 
-.pricing-item .pricing-list::-webkit-scrollbar-thumb:hover {
-  background: #555;
+
+.hover-content p::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.hover-content p::-webkit-scrollbar-thumb {
+  background-color: #a1a1a1; 
+  border-radius: 5px; 
+}
+
+.hover-content p::-webkit-scrollbar-thumb:hover{
+  background-color: #6e6e6e; 
+}
+
+.team-counter .content p{
+  height: 220x; 
+  overflow-y: auto;
+}
+
+.team-counter .content p::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.team-counter .content p::-webkit-scrollbar-thumb {
+  background-color: #a1a1a1; 
+  border-radius: 5px; 
+}
+
+.team-counter .content p::-webkit-scrollbar-thumb:hover {
+  background-color: #6e6e6e; 
+}
+
+.pricing h2{
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.timeline-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.timeline-icon {
+  width: 55px;
+  height: 50px;
+  background-color: var(--bz-color-theme-red);
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-content {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  height: 270px;
+  overflow-y: auto;
+}
+
+
+.timeline-item:first-child::before {
+  bottom: 0;
+}
+
+.timeline-content h3 {
+  font-size: 20px;
+  color: var(--bz-color-theme-red);
+  margin-bottom: 15px;
+}
+
+.timeline-content p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.timeline-content p strong {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .timeline-section {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-icon {
+    margin-bottom: 10px;
+  }
+
+  .timeline-item::before {
+    left: 22px;
+  }
+}
+
+@media (max-width: 668px) {
+  .timeline-icon {
+    width: 55px;
+    height: 55px;
+    background-color: var(--bz-color-theme-red);
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 53px;
+    border-radius: 50%;
+    margin-right: 20px;
+    position: relative;
+    z-index: 1;
+}
+}
+
+.timeline-content::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.timeline-content::-webkit-scrollbar-thumb {
+  background-color: #acacac; 
+  border-radius: 5px; 
+}
+
+.timeline-content::-webkit-scrollbar-thumb:hover{
+  background-color: #6e6e6e; 
+}
+
+.pricing ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.pricing li::before {
+  content: '\f00c'; 
+  font-family: FontAwesome; 
+  color: #1958a7;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 14px; 
 }

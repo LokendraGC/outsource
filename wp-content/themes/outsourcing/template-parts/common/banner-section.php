@@ -1,5 +1,14 @@
+<?php 
+		$banner_image = get_field('banner_image');
+		if( $banner_image ){
+			$banner_img = $banner_image['url'];
+		}else{
+			$banner_img = get_template_directory_uri() . "/assets/img/banner/banner-breadcrumb.jpg";
+		}
+ ?>
+
 <section class="page-header">
-	<div class="bg-img" data-background="<?php echo get_template_directory_uri(); ?>/assets/img/banner/banner-breadcrumb.jpg"></div>
+	<div class="bg-img" data-background="<?php echo $banner_img; ?>"></div>
 	<div class="overlay"></div>
 	<div class="shapes">
 		<div class="shape shape-2"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/shapes/pager-header-shape-2.png" alt="shape"></div>
